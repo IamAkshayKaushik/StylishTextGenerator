@@ -9,7 +9,6 @@
     <meta http-equiv="x-dns-prefetch-control" content="on"/>
     {% block head %}{% endblock head %}
     <link href={% static '/css/style.css' %} rel='stylesheet'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.css">
 
     <!-- Lowest Prority CSS-->
     {#  <link rel="stylesheet" media="print" onload="this.onload=null;this.removeAttribute('media');" href="https://fonts.googleapis.com/css?family=Noto+Sans|Pacifico|Cardo&display=swap">#}
@@ -44,6 +43,13 @@
 <section align="center">
     <!-- Elements adds here -->
 </section>
+<div class="grid">
+<div id="symbols">
+{% block content %}
+
+{% endblock content%}
+</div>
+</div>
 <footer>
     <div class="grid">
         <p class="copyright">Copyright 2020 TextGeneratorFonts</p>
@@ -53,51 +59,34 @@
         {#      </ul>#}
     </div>
 </footer>
-<a id="button"></a>
+<a id="button">Top</a>
 {% block scripts %}
 {% endblock scripts %}
 
 
 <style>
     #button {
-        display: inline-block;
-        background-color: #ff9800;
-        width: 40px;
-        height: 40px;
-        text-align: center;
-        border-radius: 4px;
-        position: fixed;
-        bottom: 30px;
-        right: 30px;
-        transition: background-color .3s,
-        opacity .5s, visibility .5s;
-        opacity: 0;
-        visibility: hidden;
-        z-index: 1000;
+   display: none; /* Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button at the bottom of the page */
+  right: 30px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color: var(--nav-background); /* Set a background color */
+  color: white; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 15px; /* Some padding */
+  border-radius: 10px; /* Rounded corners */
+  font-size: 18px; /* Increase font size */
     }
-
-    #button::after {
-        content: "\f077";
-        font-family: FontAwesome;
-        font-weight: normal;
-        font-style: normal;
-        font-size: 2em;
-        line-height: 40px;
-        color: #fff;
-    }
-
-    #button:hover {
-        cursor: pointer;
-        background-color: #333;
-    }
-
-    #button:active {
+    #button:hover{
         background-color: #555;
     }
 
     #button.show {
         opacity: 1;
-        visibility: visible;
+        display: block;
     }
 
     .toast-it {
@@ -109,7 +98,7 @@
         position: fixed;
         /* center horizontally */
         top: 95%;
-        left: 90%;
+        left: 50%;
         transform: translate(-50%, -80%);
 
         animation-name: pulse;
@@ -136,6 +125,24 @@
 
 
 </style>
+
+
+<!-- lazy load -->
+<script>
+  if ('loading' in HTMLImageElement.prototype) {
+    const images = document.querySelectorAll('img[loading="lazy"]');
+    images.forEach(img => {
+      img.src = img.dataset.src;
+    });
+  } else {
+    // Dynamically import the LazySizes library
+    const script = document.createElement('script');
+    script.src =
+      'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js';
+    document.body.appendChild(script);
+  }
+</script>
+<!-- end lazyload -->
 
 
 <!--    Scroll top button -->
