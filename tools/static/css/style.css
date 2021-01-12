@@ -22,23 +22,26 @@ body {
     overflow-x: hidden;
     font-family: 'sans-serif';
 }
-
-.button {
-    background: none;
-    border: 2px solid var(--primary);
-    color: var(--primary);
-    padding: 6px 12px;
-    border-radius: 20px;
-    text-transform: uppercase;
-    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.6);
-    display: inline-block;
-    font-size: 1em;
+input span{
+    font-family: HelveticaNeue-Light,-apple-system,AppleSDGothicNeo-Regular,'lucida grande',tahoma,verdana,arial,sans-serif,'Segoe UI Emoji','Segoe UI Symbol',Noto Color Emoji, NotoColorEmoji,EmojiSymbols,Symbola,Noto,'Android Emoji',AndroidEmoji,'Arial Unicode MS','Zapf Dingbats',AppleColorEmoji,'Apple Color Emoji';
 }
 
-.button:hover {
-    color: #222;
-    background: var(--primary);
-}
+/*.button {*/
+/*    background: none;*/
+/*    border: 2px solid var(--primary);*/
+/*    color: var(--primary);*/
+/*    padding: 6px 12px;*/
+/*    border-radius: 20px;*/
+/*    text-transform: uppercase;*/
+/*    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.6);*/
+/*    display: inline-block;*/
+/*    font-size: 1em;*/
+/*}*/
+
+/*.button:hover {*/
+/*    color: #222;*/
+/*    background: var(--primary);*/
+/*}*/
 
 input, textarea {
     background: rgba(255, 255, 255, 0.05);
@@ -96,6 +99,12 @@ h4 {
 .grid {
     display: grid;
     grid-template-columns: repeat(8, 1fr);
+    gap: 10px;
+    box-sizing: border-box;
+}
+.grid-new{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
     gap: 10px;
     box-sizing: border-box;
 }
@@ -160,9 +169,9 @@ h4 {
     text-align: center;
 }
 #symbols img{
-      object-fit: cover;
-  width: 100%;
-  max-height: 100%;
+    object-fit: cover;
+    width: 100%;
+    max-height: 100%;
 }
 
 .text-items{
@@ -172,6 +181,65 @@ h4 {
 
     grid-column: 2/8;
 }
+    #button {
+        display: none; /* Hidden by default */
+        position: fixed; /* Fixed/sticky position */
+        bottom: 20px; /* Place the button at the bottom of the page */
+        right: 30px; /* Place the button 30px from the right */
+        z-index: 99; /* Make sure it does not overlap */
+        border: none; /* Remove borders */
+        outline: none; /* Remove outline */
+        background-color: var(--nav-background); /* Set a background color */
+        color: white; /* Text color */
+        cursor: pointer; /* Add a mouse pointer on hover */
+        padding: 15px; /* Some padding */
+        border-radius: 10px; /* Rounded corners */
+        font-size: 18px; /* Increase font size */
+    }
+
+    #button:hover {
+        background-color: #555;
+    }
+
+    #button.show {
+        opacity: 1;
+        display: block;
+    }
+
+    .toast-it {
+        background-color: #555555;
+        color: #F4F4F4;
+        padding: 3px 20px;
+        border-radius: 20px;
+        text-align: center;
+        position: fixed;
+        /* center horizontally */
+        top: 95%;
+        left: 50%;
+        transform: translate(-50%, -80%);
+
+        animation-name: pulse;
+        animation-timing-function: ease-in;
+        animation-duration: 2s;
+    }
+
+    @keyframes TOAST-APPEAR {
+        0% {
+            opacity: 0;
+        }
+        15% {
+            opacity: 1;
+        }
+        80% {
+            opacity: 1;
+            top: 80%;
+        }
+        100% {
+            opacity: 0;
+            top: 40%;
+        }
+    }
+
 
 footer {
     padding: 30px 20px;
@@ -218,6 +286,9 @@ footer li {
 
     body {
         font-size: 18px;
+    }
+        .grid-new{
+        grid-template-columns: repeat(7, 1fr);
     }
 
     /*.grid {*/
@@ -269,6 +340,9 @@ footer li {
 
     .leading {
         margin: 20px 0;
+    }
+    .grid-new{
+        grid-template-columns: repeat(8, 1fr);
     }
 
 
