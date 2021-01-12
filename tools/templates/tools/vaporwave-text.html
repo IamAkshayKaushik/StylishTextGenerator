@@ -1,0 +1,14 @@
+{% extends 'custom-base.html' %}
+{% load static %}
+{% block head %}
+    <title>Vaporwave Text</title>
+{% endblock head %}
+
+{% block header %}
+    Vaporwave Text
+{% endblock header %}
+{% block scripts %}
+    <script src={% static "vaporwave-text/base.js" %} defer></script>
+    <script src={% static "vaporwave-text/fancytextking.js" %} defer></script>
+{% endblock scripts %}
+

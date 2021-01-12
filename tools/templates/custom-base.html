@@ -1,0 +1,196 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href={% static "fevicon.png" %}>
+    <meta http-equiv="x-dns-prefetch-control" content="on"/>
+    {% block head %}{% endblock head %}
+    <link href={% static '/css/style.css' %} rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.css">
+
+    <!-- Lowest Prority CSS-->
+    {#  <link rel="stylesheet" media="print" onload="this.onload=null;this.removeAttribute('media');" href="https://fonts.googleapis.com/css?family=Noto+Sans|Pacifico|Cardo&display=swap">#}
+    {#  <link rel="stylesheet" media="print" onload="this.onload=null;this.removeAttribute('media');" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.css">#}
+    <!-- Lowest Prority CSS end  -->
+
+    <!-- low priority css  load before lcp   -->
+    {#  <link rel="preload" href="https://fonts.googleapis.com/css?family=Noto+Sans|Pacifico|Cardo&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">#}
+    {#  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans|Pacifico|Cardo&display=swap"></noscript>#}
+{#      <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.css" as="style" onload="this.onload=null;this.rel='stylesheet'">#}
+    {#  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.css"></noscript>#}
+    <!-- low priority css load before lcp end  -->
+</head>
+<body>
+<div class="navigation-bar">
+    <nav class="site-nav grid">
+        <p><a href="{% url 'texttools:HOME' %}"> TextGeneraorFonts</a></p>
+        <ul>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</div>
+<div id="akshay-generate-text" class="grid">
+    <h1>{% block header %}{% endblock header %}</h1>
+    <textarea placeholder="Enter text" id="input_text"></textarea>
+    <div class="custom-ad-1"></div>
+</div>
+<div class="text-items grid" id="text-block">
+</div>
+<section align="center">
+    <!-- Elements adds here -->
+</section>
+<footer>
+    <div class="grid">
+        <p class="copyright">Copyright 2020 TextGeneratorFonts</p>
+        {#      <ul class="social">#}
+        {#        <li><a href="#"><img src="assets/icon_fb.svg" alt="facebook"></a></li>#}
+        {#        <li><a href="#"><img src="assets/icon_tw.svg" alt="twitter"></a></li>#}
+        {#      </ul>#}
+    </div>
+</footer>
+<a id="button"></a>
+{% block scripts %}
+{% endblock scripts %}
+
+
+<style>
+    #button {
+        display: inline-block;
+        background-color: #ff9800;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        border-radius: 4px;
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        transition: background-color .3s,
+        opacity .5s, visibility .5s;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 1000;
+    }
+
+    #button::after {
+        content: "\f077";
+        font-family: FontAwesome;
+        font-weight: normal;
+        font-style: normal;
+        font-size: 2em;
+        line-height: 40px;
+        color: #fff;
+    }
+
+    #button:hover {
+        cursor: pointer;
+        background-color: #333;
+    }
+
+    #button:active {
+        background-color: #555;
+    }
+
+    #button.show {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .toast-it {
+        background-color: #555555;
+        color: #F4F4F4;
+        padding: 3px 20px;
+        border-radius: 20px;
+        text-align: center;
+        position: fixed;
+        /* center horizontally */
+        top: 95%;
+        left: 90%;
+        transform: translate(-50%, -80%);
+
+        animation-name: pulse;
+        animation-timing-function: ease-in;
+        animation-duration: 2s;
+    }
+
+    @keyframes TOAST-APPEAR {
+        0% {
+            opacity: 0;
+        }
+        15% {
+            opacity: 1;
+        }
+        80% {
+            opacity: 1;
+            top: 80%;
+        }
+        100% {
+            opacity: 0;
+            top: 40%;
+        }
+    }
+
+
+</style>
+
+
+<!--    Scroll top button -->
+<script>
+    function scrollFunction() {
+        document.body.scrollTop > 20 || document.documentElement.scrollTop > 20 ? mybutton.classList.add("show") : mybutton.classList.remove("show")
+    }
+
+    function topFunction() {
+        document.body.scrollTop = 0, document.documentElement.scrollTop = 0
+    }
+
+    mybutton = document.getElementById("button");
+    window.onscroll = function () {
+        scrollFunction()
+    }, mybutton.addEventListener("click", topFunction, {passive: true});
+</script>
+
+<!-- Toast -->
+<script>
+    (function (global, factory) {
+        typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
+            typeof define === 'function' && define.amd ? define(factory) :
+                global.toastIt = factory();
+    }(this, function () {
+        'use strict';
+
+        var toastIt = function (text, timeout, options) {
+            var timeout = timeout || 3000;
+            var toast = document.createElement('DIV');
+            toast.classList.add('toast-it');
+            var content = document
+                .createTextNode(text);
+            toast.appendChild(content);
+            toast.style.animationDuration = timeout / 1000 + 's';
+
+            for (var prop in options) {
+                {#console.log(toast.style[prop], options[prop]);#}
+                toast.style[prop] = options[prop];
+            }
+
+            document.body.appendChild(toast);
+            setTimeout(function () {
+                document.body.removeChild(toast);
+            }, timeout);
+        }
+
+        return toastIt;
+    }));
+
+    {#document.getElementById('trigger').onclick = function () {#}
+    {#    var text = document.getElementById('msg').value;#}
+    {#    toastIt(text, 2500, {fontSize: '18px'});#}
+    {#  }#}
+</script>
+<!-- toast End -->
+</body>
+</html>

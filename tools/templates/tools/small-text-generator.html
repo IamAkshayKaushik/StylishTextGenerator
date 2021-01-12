@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <title>(っ◔◡◔) Small Text Generator ♥ ➽ 𝐔𝐧𝐢𝐪𝐮𝐞 Styles Of Fancy Fonts</title>
+    <link rel="canonical" href={{ request.build_absolute_uri }} />
+    <meta http-equiv="x-dns-prefetch-control" content="on" />
+    <meta name="title" content="(っ◔◡◔) Small Text Generator ♥ ➽ 𝐔𝐧𝐢𝐪𝐮𝐞 Styles Of Fancy Fonts">
+    <meta name="Description" content="This small fancy text generator will transform your text into subscript and superscript form of writing. " />
+    <meta name="keywords" content="Small Text, Small Fonts, Small Text Generator, Small Text, Cool Small Text">
+    <link rel='dns-prefetch' href='https://fonts.googleapis.com' />
+    <link rel='dns-prefetch' href='cdnjs.cloudflare.com' />
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content={{ request.build_absolute_uri }}>
+    <meta property="og:title" content="(っ◔◡◔) Small Text Generator ♥ ➽ 𝐔𝐧𝐢𝐪𝐮𝐞 Styles Of Fancy Fonts">
+    <meta property="og:description" content="This small fancy text generator will transform your text into subscript and superscript form of writing. ">
+    <meta property="og:image" content="https://textgeneratorfonts.com/static/stylish-text-generator/images/Fancy+Text+Generator.gif">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ request.build_absolute_uri }}">
+    <meta property="twitter:title" content="(っ◔◡◔) Small Text Generator ♥ ➽ 𝐔𝐧𝐢𝐪𝐮𝐞 Styles Of Fancy Fonts">
+    <meta property="twitter:description" content="This small fancy text generator will transform your text into subscript and superscript form of writing. ">
+    <meta property="twitter:image" content="https://textgeneratorfonts.com/static/stylish-text-generator/images/Fancy+Text+Generator.gif">
+
+{% endblock head %}
+
+{% block content %}
+    <div class="container">
+        <div class="jumbotron jumbotron-fluid " style="background-image: url({% static 'stylish-text-generator/images/funny-background.webp' %});background-size: cover;background-repeat: no-repeat;">
+            <div class="container">
+              <br>&nbsp;
+              <div class="input-group input-group-lg">
+                <input type="text" class="form-control" id="input_text" style="text-align:center;" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" placeholder="Insert Text to Generate" autofocus>
+              </div>
+            </div>
+        </div>
+        <div id="text-block"></div>
+    </div>
+
+
+
+<script src={% static "small-text-generator/small-text.js" %} defer="defer"></script>
+{#<script src={% static "stylish-text-generator/fancytextking.js" %} defer="defer"></script>#}
+    <script type='application/ld+json'>
+      {
+        "@context": "http://www.schema.org",
+        "@type": "WebSite",
+        "name": "Text Generator Fonts",
+        "alternateName": "Fancy Text Generator",
+        "url": "https://textgeneratorfonts.com/"
+      }
+    </script>
+{% endblock content %}

@@ -1,0 +1,453 @@
+{% load static %}
+
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="text/html;charset=UTF-8">
+    <link rel="icon" href={% static "fevicon.png" %}>
+    <meta http-equiv="x-dns-prefetch-control" content="on"/>
+    {% block head %}{% endblock head %}
+    <link href={% static '/css/bootstrap.min.css' %} rel="preload" as="style"
+          onload="this.rel='stylesheet';this.onload=null">
+
+    <noscript>
+        <link href={% static '/css/bootstrap.min.css' %} rel="stylesheet">
+    </noscript>
+    {#    <link  href={% static "css/font-awesome.min.css" %} rel="preload" as="style" onload="this.rel='stylesheet';this.onload=null">#}
+    {#    <noscript><link href={% static "css/font-awesome.min.css" %} rel="stylesheet"></noscript>#}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+            integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+            crossorigin="anonymous"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha512-jCaU0Dp3IbMDlZ6f6dSEQSnOrSsugG6F6YigRWnagi7HoOLshF1kwxLT4+xCZRgQsTNqpUKj6WmWOxsu9l3URA=="
+            crossorigin="anonymous"></script>
+</head>
+
+<body itemtype="https://schema.org/WebPage">
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="margin-top: -5px;">
+        <div class="container">
+            <a class="navbar-header" style="color: #9d9d9d !important; text-decoration: none !important "
+               href="{% url 'texttools:HOME' %}">TextGeneratorFonts</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Dropdown
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </li>
+{#                    <li class="nav-item">#}
+{#                        <a class="nav-link disabled" href="#">Disabled</a>#}
+{#                    </li>#}
+                </ul>
+                <ul class="nav navbar-nav navbar-right visible-lg visible-md" style="display: inline;">
+                <li style="margin-right: 5px; display: inline;">
+                    <a href="/feed.xml/" title="RSS" target="_blank">
+                        <i class="fa fa-rss fa-lg" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li style="margin-right: 5px; display: inline;">
+                    <a href="https://github.com/overiq/" target="_blank" title="Github">
+                        <i class="fa fa-github fa-lg" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li style="margin-right: 5px; display: inline;">
+                    <a href="https://www.facebook.com/OverIQ/" target="_blank" title="Facebook">
+                        <i class="fa fa-facebook fa-lg" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li style="margin-right: 5px; display: inline;">
+                    <a href="https://twitter.com/infoOverIQ" target="_blank" title="Twitter">
+                        <i class="fa fa-twitter fa-lg" aria-hidden="true"></i>
+                    </a>
+                </li>
+
+
+
+            </ul>
+
+            </div>
+        </div>
+    </nav>
+</header>
+
+{% block content %}
+{% endblock content %}
+
+<footer>
+    {% block footercontent %}
+    {% endblock footercontent %}
+</footer>
+
+
+<a id="button"></a>
+<style>
+    body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        line-height: 31px;
+        font-weight: normal;
+        padding-top: 5px;
+        scroll-behavior: smooth;
+    }
+
+    #button {
+        display: inline-block;
+        background-color: #ff9800;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        border-radius: 4px;
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        transition: background-color .3s,
+        opacity .5s, visibility .5s;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 1000;
+    }
+
+    #button::after {
+        content: "\f077";
+        font-family: FontAwesome;
+        font-weight: normal;
+        font-style: normal;
+        font-size: 2em;
+        line-height: 40px;
+        color: #fff;
+    }
+
+    #button:hover {
+        cursor: pointer;
+        background-color: #333;
+    }
+
+    #button:active {
+        background-color: #555;
+    }
+
+    #button.show {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .toast-it {
+        background-color: #555555;
+        color: #F4F4F4;
+        padding: 3px 20px;
+        border-radius: 20px;
+        text-align: center;
+        position: fixed;
+        /* center horizontally */
+        top: 95%;
+        left: 90%;
+        transform: translate(-50%, -80%);
+
+        animation-name: pulse;
+        animation-timing-function: ease-in;
+        animation-duration: 2s;
+    }
+
+    @keyframes TOAST-APPEAR {
+        0% {
+            opacity: 0;
+        }
+        15% {
+            opacity: 1;
+        }
+        80% {
+            opacity: 1;
+            top: 80%;
+        }
+        100% {
+            opacity: 0;
+            top: 40%;
+        }
+    }
+
+
+</style>
+
+<!-- Lazyload image -->
+<script>
+    !function (t, e) {
+        "function" == typeof define && define.amd ? define(e) : "object" == typeof exports ? module.exports = e() : t.Blazy = e()
+    }(this, function () {
+        function t(t) {
+            var o = t._util;
+            o.elements = function (t) {
+                for (var e = [], o = (t = t.root.querySelectorAll(t.selector)).length; o--; e.unshift(t[o])) ;
+                return e
+            }(t.options), o.count = o.elements.length, o.destroyed && (o.destroyed = !1, t.options.container && f(t.options.container, function (t) {
+                l(t, "scroll", o.validateT)
+            }), l(window, "resize", o.saveViewportOffsetT), l(window, "resize", o.validateT), l(window, "scroll", o.validateT)), e(t)
+        }
+
+        function e(t) {
+            for (var e = t._util, n = 0; n < e.count; n++) {
+                var s, i = e.elements[n], a = i;
+                s = t.options;
+                var c = a.getBoundingClientRect();
+                s.container && h && (a = a.closest(s.containerClass)) ? s = !!o(a = a.getBoundingClientRect(), v) && o(c, {
+                    top: a.top - s.offset,
+                    right: a.right + s.offset,
+                    bottom: a.bottom + s.offset,
+                    left: a.left - s.offset
+                }) : s = o(c, v), (s || r(i, t.options.successClass)) && (t.load(i), e.elements.splice(n, 1), e.count--, n--)
+            }
+            0 === e.count && t.destroy()
+        }
+
+        function o(t, e) {
+            return t.right >= e.left && t.bottom >= e.top && t.left <= e.right && t.top <= e.bottom
+        }
+
+        function n(t, e, o) {
+            if (!r(t, o.successClass) && (e || o.loadInvisible || 0 < t.offsetWidth && 0 < t.offsetHeight)) if (e = t.getAttribute(d) || t.getAttribute(o.src)) {
+                var n = (e = e.split(o.separator))[m && 1 < e.length ? 1 : 0], c = t.getAttribute(o.srcset),
+                    p = "img" === t.nodeName.toLowerCase(),
+                    v = (e = t.parentNode) && "picture" === e.nodeName.toLowerCase();
+                if (p || void 0 === t.src) {
+                    var h = new Image, g = function () {
+                        o.error && o.error(t, "invalid"), a(t, o.errorClass), u(h, "error", g), u(h, "load", w)
+                    }, w = function () {
+                        p ? v || i(t, n, c) : t.style.backgroundImage = 'url("' + n + '")', s(t, o), u(h, "load", w), u(h, "error", g)
+                    };
+                    v && (h = t, f(e.getElementsByTagName("source"), function (t) {
+                        var e = o.srcset, n = t.getAttribute(e);
+                        n && (t.setAttribute("srcset", n), t.removeAttribute(e))
+                    })), l(h, "error", g), l(h, "load", w), i(h, n, c)
+                } else t.src = n, s(t, o)
+            } else "video" === t.nodeName.toLowerCase() ? (f(t.getElementsByTagName("source"), function (t) {
+                var e = o.src, n = t.getAttribute(e);
+                n && (t.setAttribute("src", n), t.removeAttribute(e))
+            }), t.load(), s(t, o)) : (o.error && o.error(t, "missing"), a(t, o.errorClass))
+        }
+
+        function s(t, e) {
+            a(t, e.successClass), e.success && e.success(t), t.removeAttribute(e.src), t.removeAttribute(e.srcset), f(e.breakpoints, function (e) {
+                t.removeAttribute(e.src)
+            })
+        }
+
+        function i(t, e, o) {
+            o && t.setAttribute("srcset", o), t.src = e
+        }
+
+        function r(t, e) {
+            return -1 !== (" " + t.className + " ").indexOf(" " + e + " ")
+        }
+
+        function a(t, e) {
+            r(t, e) || (t.className += " " + e)
+        }
+
+        function c(t) {
+            v.bottom = (window.innerHeight || document.documentElement.clientHeight) + t, v.right = (window.innerWidth || document.documentElement.clientWidth) + t
+        }
+
+        function l(t, e, o) {
+            t.attachEvent ? t.attachEvent && t.attachEvent("on" + e, o) : t.addEventListener(e, o, {
+                capture: !1,
+                passive: !0
+            })
+        }
+
+        function u(t, e, o) {
+            t.detachEvent ? t.detachEvent && t.detachEvent("on" + e, o) : t.removeEventListener(e, o, {
+                capture: !1,
+                passive: !0
+            })
+        }
+
+        function f(t, e) {
+            if (t && e) for (var o = t.length, n = 0; n < o && !1 !== e(t[n], n); n++) ;
+        }
+
+        function p(t, e, o) {
+            var n = 0;
+            return function () {
+                var s = +new Date;
+                s - n < e || (n = s, t.apply(o, arguments))
+            }
+        }
+
+        var d, v, m, h;
+        return function (o) {
+            if (!document.querySelectorAll) {
+                var s = document.createStyleSheet();
+                document.querySelectorAll = function (t, e, o, n, i) {
+                    for (i = document.all, e = [], o = (t = t.replace(/\[for\b/gi, "[htmlFor").split(",")).length; o--;) {
+                        for (s.addRule(t[o], "k:v"), n = i.length; n--;) i[n].currentStyle.k && e.push(i[n]);
+                        s.removeRule(0)
+                    }
+                    return e
+                }
+            }
+            var i = this, r = i._util = {};
+            r.elements = [], r.destroyed = !0, i.options = o || {}, i.options.error = i.options.error || !1, i.options.offset = i.options.offset || 100, i.options.root = i.options.root || document, i.options.success = i.options.success || !1, i.options.selector = i.options.selector || ".b-lazy", i.options.separator = i.options.separator || "|", i.options.containerClass = i.options.container, i.options.container = !!i.options.containerClass && document.querySelectorAll(i.options.containerClass), i.options.errorClass = i.options.errorClass || "b-error", i.options.breakpoints = i.options.breakpoints || !1, i.options.loadInvisible = i.options.loadInvisible || !1, i.options.successClass = i.options.successClass || "b-loaded", i.options.validateDelay = i.options.validateDelay || 25, i.options.saveViewportOffsetDelay = i.options.saveViewportOffsetDelay || 50, i.options.srcset = i.options.srcset || "data-srcset", i.options.src = d = i.options.src || "data-src", h = Element.prototype.closest, m = 1 < window.devicePixelRatio, (v = {}).top = 0 - i.options.offset, v.left = 0 - i.options.offset, i.revalidate = function () {
+                t(i)
+            }, i.load = function (t, e) {
+                var o = this.options;
+                void 0 === t.length ? n(t, e, o) : f(t, function (t) {
+                    n(t, e, o)
+                })
+            }, i.destroy = function () {
+                var t = this._util;
+                this.options.container && f(this.options.container, function (e) {
+                    u(e, "scroll", t.validateT)
+                }), u(window, "scroll", t.validateT), u(window, "resize", t.validateT), u(window, "resize", t.saveViewportOffsetT), t.count = 0, t.elements.length = 0, t.destroyed = !0
+            }, r.validateT = p(function () {
+                e(i)
+            }, i.options.validateDelay, i), r.saveViewportOffsetT = p(function () {
+                c(i.options.offset)
+            }, i.options.saveViewportOffsetDelay, i), c(i.options.offset), f(i.options.breakpoints, function (t) {
+                if (t.width >= window.screen.width) return d = t.src, !1
+            }), setTimeout(function () {
+                t(i)
+            })
+        }
+    }), new Blazy;
+</script>
+
+<!--preload css -->
+<script>
+    !function (e) {
+        "use strict";
+        var t = function (t, n, r) {
+            function o() {
+                i.addEventListener && i.removeEventListener("load", o), i.media = r || "all"
+            }
+
+            var a, l = e.document, i = l.createElement("link");
+            if (n) a = n; else {
+                var d = (l.body || l.getElementsByTagName("head")[0]).childNodes;
+                a = d[d.length - 1]
+            }
+            var s = l.styleSheets;
+            i.rel = "stylesheet", i.href = t, i.media = "only x", function e(t) {
+                return l.body ? t() : void setTimeout(function () {
+                    e(t)
+                })
+            }(function () {
+                a.parentNode.insertBefore(i, n ? a : a.nextSibling)
+            });
+            var u = function (e) {
+                for (var t = i.href, n = s.length; n--;) if (s[n].href === t) return e();
+                setTimeout(function () {
+                    u(e)
+                })
+            };
+            return i.addEventListener && i.addEventListener("load", o), i.onloadcssdefined = u, u(o), i
+        };
+        "undefined" != typeof exports ? exports.loadCSS = t : e.loadCSS = t
+    }("undefined" != typeof global ? global : this), function (e) {
+        if (e.loadCSS) {
+            var t = loadCSS.relpreload = {};
+            if (t.support = function () {
+                try {
+                    return e.document.createElement("link").relList.supports("preload")
+                } catch (e) {
+                    return !1
+                }
+            }, t.poly = function () {
+                for (var t = e.document.getElementsByTagName("link"), n = 0; n < t.length; n++) {
+                    var r = t[n];
+                    "preload" === r.rel && "style" === r.getAttribute("as") && (e.loadCSS(r.href, r, r.getAttribute("media")), r.rel = null)
+                }
+            }, !t.support()) {
+                t.poly();
+                var n = e.setInterval(t.poly, 300);
+                e.addEventListener && e.addEventListener("load", function () {
+                    t.poly(), e.clearInterval(n)
+                }, {passive: !0}), e.attachEvent && e.attachEvent("onload", function () {
+                    e.clearInterval(n)
+                })
+            }
+        }
+    }(this);
+</script>
+
+<script>
+    function scrollFunction() {
+        document.body.scrollTop > 20 || document.documentElement.scrollTop > 20 ? mybutton.classList.add("show") : mybutton.classList.remove("show")
+    }
+
+    function topFunction() {
+        document.body.scrollTop = 0, document.documentElement.scrollTop = 0
+    }
+
+    mybutton = document.getElementById("button");
+    window.onscroll = function () {
+        scrollFunction()
+    }, mybutton.addEventListener("click", topFunction, {passive: true});
+</script>
+<!-- Analytics -->
+<script>
+    !function (e, a, t, n, g, c, o) {
+        e.GoogleAnalyticsObject = g, e.ga = e.ga || function () {
+            (e.ga.q = e.ga.q || []).push(arguments)
+        }, e.ga.l = 1 * new Date, c = a.createElement(t), o = a.getElementsByTagName(t)[0], c.async = 1, c.src = "https://www.google-analytics.com/analytics.js", o.parentNode.insertBefore(c, o)
+    }(window, document, "script", 0, "ga"), ga("create", "UA-93475750-3", "auto"), ga("send", "pageview");
+</script>
+
+<!-- Toast -->
+<script>
+    (function (global, factory) {
+        typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
+            typeof define === 'function' && define.amd ? define(factory) :
+                global.toastIt = factory();
+    }(this, function () {
+        'use strict';
+
+        var toastIt = function (text, timeout, options) {
+            var timeout = timeout || 3000;
+            var toast = document.createElement('DIV');
+            toast.classList.add('toast-it');
+            var content = document
+                .createTextNode(text);
+            toast.appendChild(content);
+            toast.style.animationDuration = timeout / 1000 + 's';
+
+            for (var prop in options) {
+                console.log(toast.style[prop], options[prop]);
+                toast.style[prop] = options[prop];
+            }
+
+            document.body.appendChild(toast);
+            setTimeout(function () {
+                document.body.removeChild(toast);
+            }, timeout);
+        }
+
+        return toastIt;
+    }));
+
+    {#document.getElementById('trigger').onclick = function () {#}
+    {#    var text = document.getElementById('msg').value;#}
+    {#    toastIt(text, 2500, {fontSize: '18px'});#}
+    {#  }#}
+</script>
+<!-- toast End -->
+</body>
+</html>
