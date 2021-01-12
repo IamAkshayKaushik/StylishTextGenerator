@@ -26,6 +26,7 @@ function copyToClipboard(input_box) {
     toastIt('Copied', 2000, {fontSize: '18px'});
     textBox.blur();
 }
+
 // end copyToClipboard
 
 // Start css defer
@@ -70,7 +71,6 @@ function makeStyle(input_text) {
         createBoxes("text-block", input_text);
     }
 }
-
 
 
 // change text on keyup

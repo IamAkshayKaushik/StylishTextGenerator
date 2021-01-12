@@ -18,7 +18,7 @@
     <!-- low priority css  load before lcp   -->
     {#  <link rel="preload" href="https://fonts.googleapis.com/css?family=Noto+Sans|Pacifico|Cardo&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">#}
     {#  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans|Pacifico|Cardo&display=swap"></noscript>#}
-{#      <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.css" as="style" onload="this.onload=null;this.rel='stylesheet'">#}
+    {#      <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.css" as="style" onload="this.onload=null;this.rel='stylesheet'">#}
     {#  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.css"></noscript>#}
     <!-- low priority css load before lcp end  -->
 </head>
@@ -44,11 +44,11 @@
     <!-- Elements adds here -->
 </section>
 <div class="grid">
-<div id="symbols">
-{% block content %}
+    <div id="symbols">
+        {% block content %}
 
-{% endblock content%}
-</div>
+        {% endblock content %}
+    </div>
 </div>
 <footer>
     <div class="grid">
@@ -66,21 +66,22 @@
 
 <style>
     #button {
-   display: none; /* Hidden by default */
-  position: fixed; /* Fixed/sticky position */
-  bottom: 20px; /* Place the button at the bottom of the page */
-  right: 30px; /* Place the button 30px from the right */
-  z-index: 99; /* Make sure it does not overlap */
-  border: none; /* Remove borders */
-  outline: none; /* Remove outline */
-  background-color: var(--nav-background); /* Set a background color */
-  color: white; /* Text color */
-  cursor: pointer; /* Add a mouse pointer on hover */
-  padding: 15px; /* Some padding */
-  border-radius: 10px; /* Rounded corners */
-  font-size: 18px; /* Increase font size */
+        display: none; /* Hidden by default */
+        position: fixed; /* Fixed/sticky position */
+        bottom: 20px; /* Place the button at the bottom of the page */
+        right: 30px; /* Place the button 30px from the right */
+        z-index: 99; /* Make sure it does not overlap */
+        border: none; /* Remove borders */
+        outline: none; /* Remove outline */
+        background-color: var(--nav-background); /* Set a background color */
+        color: white; /* Text color */
+        cursor: pointer; /* Add a mouse pointer on hover */
+        padding: 15px; /* Some padding */
+        border-radius: 10px; /* Rounded corners */
+        font-size: 18px; /* Increase font size */
     }
-    #button:hover{
+
+    #button:hover {
         background-color: #555;
     }
 
@@ -129,18 +130,18 @@
 
 <!-- lazy load -->
 <script>
-  if ('loading' in HTMLImageElement.prototype) {
-    const images = document.querySelectorAll('img[loading="lazy"]');
-    images.forEach(img => {
-      img.src = img.dataset.src;
-    });
-  } else {
-    // Dynamically import the LazySizes library
-    const script = document.createElement('script');
-    script.src =
-      'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js';
-    document.body.appendChild(script);
-  }
+    if ('loading' in HTMLImageElement.prototype) {
+        const images = document.querySelectorAll('img[loading="lazy"]');
+        images.forEach(img => {
+            img.src = img.dataset.src;
+        });
+    } else {
+        // Dynamically import the LazySizes library
+        const script = document.createElement('script');
+        script.src =
+            'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js';
+        document.body.appendChild(script);
+    }
 </script>
 <!-- end lazyload -->
 
