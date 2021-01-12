@@ -10,5 +10,7 @@ urlpatterns = [
          name="small-text-generator"),
     path('', TemplateView.as_view(template_name="tools/vaporwave-text.html"), name="HOME"),
     path('star-symbols', TemplateView.as_view(template_name="tools/star-symbols.html"), name="star-symbbols"),
+    path('copyright-symbols', TemplateView.as_view(template_name="tools/copyright-symbols.html"),
+         name="copyright-symbols")
     # path('bootstrap', TemplateView.as_view(template_name="tools/home.html"), name="vaporwave-text"),
 ]
