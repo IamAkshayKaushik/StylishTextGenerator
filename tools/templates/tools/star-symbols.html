@@ -1,45 +1,13 @@
+{% extends 'symbol-base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Copy and Paste star symbols </title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
-<body>
+{% block head %}
+    <title>Star Symbols</title>
+{% endblock head %}
 
-<div class="navigation-bar">
-    <nav class="site-nav grid">
-        <p><a href="{% url 'texttools:HOME' %}"> TextGeneraorFonts</a></p>
-        <ul>
-            <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-</div>
-
-<div class="grid">
-    <h1>Star Symbols</h1>
-</div>
-
-<div class="grid">
-    <div id="symbols" class="grid-new">
-        <style>
-            span {
-                font-family: HelveticaNeue-Light,-apple-system,AppleSDGothicNeo-Regular,'lucida grande',tahoma,verdana,arial,sans-serif,'Segoe UI Emoji','Segoe UI Symbol',Noto Color Emoji, NotoColorEmoji,EmojiSymbols,Symbola,Noto,'Android Emoji',AndroidEmoji,'Arial Unicode MS','Zapf Dingbats',AppleColorEmoji,'Apple Color Emoji';
-                font-size: 21px;
-                border: 2px solid #1f1f1f;
-                border-radius: 25%;
-                padding: 0.5em;
-            }
-
-            span:hover {
-                box-shadow: 0 5px 10px rgba(0, 0, 0, .8);
-                transform: translateY(-5px) scale(1.02);
-                background: var(--primary);
-            }
-        </style>
+{% block header %}
+    Star Symbols
+{% endblock header %}
+{% block symbols %}
         <span>★</span>
         <span>🟌</span>
         <span>✶</span>
@@ -113,65 +81,4 @@
         <span>✨</span>
         <span>۞</span>
         <span>✥</span>
-    </div>
-</div>
-
-<script>
-    var spans = document.getElementsByTagName('span');
-    for (let i = 0; i < spans.length; i++)
-        spans[i].onclick = doSomething;
-
-    function doSomething(input_box) {
-        let SelectedElement = input_box.path || (input_box.composedPath && input_box.composedPath());
-        toastIt('Copied', 2000, {fontSize: '18px'});
-        let a = SelectedElement[0].textContent;
-        let dummy = document.createElement("textarea");
-        document.body.appendChild(dummy);
-        dummy.value = a;
-        dummy.select();
-        document.execCommand("copy");
-        document.body.removeChild(dummy);
-}</script>
-
-
-<!-- Toast -->
-<script>
-    (function (global, factory) {
-        typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
-            typeof define === 'function' && define.amd ? define(factory) :
-                global.toastIt = factory();
-    }(this, function () {
-        'use strict';
-
-        var toastIt = function (text, timeout, options) {
-            var timeout = timeout || 3000;
-            var toast = document.createElement('DIV');
-            toast.classList.add('toast-it');
-            var content = document
-                .createTextNode(text);
-            toast.appendChild(content);
-            toast.style.animationDuration = timeout / 1000 + 's';
-
-            for (var prop in options) {
-                {#console.log(toast.style[prop], options[prop]);#}
-                toast.style[prop] = options[prop];
-            }
-
-            document.body.appendChild(toast);
-            setTimeout(function () {
-                document.body.removeChild(toast);
-            }, timeout);
-        }
-
-        return toastIt;
-    }));
-
-    {#document.getElementById('trigger').onclick = function () {#}
-    {#    var text = document.getElementById('msg').value;#}
-    {#    toastIt(text, 2500, {fontSize: '18px'});#}
-    {#  }#}
-</script>
-<!-- toast End -->
-
-</body>
-</html>
+{% endblock symbols %}

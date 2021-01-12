@@ -22,8 +22,9 @@ body {
     overflow-x: hidden;
     font-family: 'sans-serif';
 }
-input span{
-    font-family: HelveticaNeue-Light,-apple-system,AppleSDGothicNeo-Regular,'lucida grande',tahoma,verdana,arial,sans-serif,'Segoe UI Emoji','Segoe UI Symbol',Noto Color Emoji, NotoColorEmoji,EmojiSymbols,Symbola,Noto,'Android Emoji',AndroidEmoji,'Arial Unicode MS','Zapf Dingbats',AppleColorEmoji,'Apple Color Emoji';
+
+input span {
+    font-family: HelveticaNeue-Light, -apple-system, AppleSDGothicNeo-Regular, 'lucida grande', tahoma, verdana, arial, sans-serif, 'Segoe UI Emoji', 'Segoe UI Symbol', Noto Color Emoji, NotoColorEmoji, EmojiSymbols, Symbola, Noto, 'Android Emoji', AndroidEmoji, 'Arial Unicode MS', 'Zapf Dingbats', AppleColorEmoji, 'Apple Color Emoji';
 }
 
 /*.button {*/
@@ -55,27 +56,26 @@ input, textarea {
 }
 
 
-
 h1, h2, h3, h4 {
     /*color: #DDDBFF;*/
     font-weight: normal;
     line-height: 1.4em;
 }
 
-p, a, li ,ul{
+p, a, li, ul {
     color: #474e5d;
     line-height: 1.4em;
     font-size: 1em;
 }
 
-.site-nav p{
+.site-nav p {
     font-size: 1.2em;
     font-weight: normal;
     line-height: 1.4em;
     margin: revert;
 }
 
-h1{
+h1 {
     font-size: 1.8em;
 }
 
@@ -102,15 +102,18 @@ h4 {
     gap: 10px;
     box-sizing: border-box;
 }
-.grid-new{
+
+.grid-new {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     gap: 10px;
     box-sizing: border-box;
 }
-.navigation-bar{
+
+.navigation-bar {
     background: var(--nav-background);
 }
+
 .site-nav {
     margin: 0 20px;
 }
@@ -127,10 +130,12 @@ h4 {
 .site-nav ul {
     display: none;
 }
-.site-nav a{
+
+.site-nav a {
     color: white;
 }
-#akshay-generate-text{
+
+#akshay-generate-text {
     position: -webkit-sticky; /* Safari */
     position: sticky;
     top: 0;
@@ -139,17 +144,20 @@ h4 {
     box-shadow: 1px -3px black;
 
 }
-#akshay-generate-text textarea,h1,.custom-ad-1{
+
+#akshay-generate-text textarea, h1, .custom-ad-1 {
     grid-column: 2/8;
     text-align: center;
 
 }
-#akshay-generate-text textarea{
+
+#akshay-generate-text textarea {
     background: white;
     grid-row: 2;
     font-weight: bold;
 }
-#akshay-generate-text h1{
+
+#akshay-generate-text h1 {
     color: #fff;
     display: block;
     padding: 5px 7px 7px;
@@ -158,87 +166,91 @@ h4 {
     background: var(--nav-background);
     grid-row: 1;
 }
-#akshay-generate-text .custom-ad-1{
+
+#akshay-generate-text .custom-ad-1 {
     width: 100%;
     grid-row: 3;
     overflow: hidden;
 }
 
-#symbols{
+#symbols {
     grid-column: 2/8;
     text-align: center;
 }
-#symbols img{
+
+#symbols img {
     object-fit: cover;
     width: 100%;
     max-height: 100%;
 }
 
-.text-items{
+.text-items {
     margin: 0.5rem;
 }
-.text-items input{
+
+.text-items input {
 
     grid-column: 2/8;
 }
-    #button {
-        display: none; /* Hidden by default */
-        position: fixed; /* Fixed/sticky position */
-        bottom: 20px; /* Place the button at the bottom of the page */
-        right: 30px; /* Place the button 30px from the right */
-        z-index: 99; /* Make sure it does not overlap */
-        border: none; /* Remove borders */
-        outline: none; /* Remove outline */
-        background-color: var(--nav-background); /* Set a background color */
-        color: white; /* Text color */
-        cursor: pointer; /* Add a mouse pointer on hover */
-        padding: 15px; /* Some padding */
-        border-radius: 10px; /* Rounded corners */
-        font-size: 18px; /* Increase font size */
-    }
 
-    #button:hover {
-        background-color: #555;
-    }
+#button {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed/sticky position */
+    bottom: 20px; /* Place the button at the bottom of the page */
+    right: 30px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+    background-color: var(--nav-background); /* Set a background color */
+    color: white; /* Text color */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    padding: 15px; /* Some padding */
+    border-radius: 10px; /* Rounded corners */
+    font-size: 18px; /* Increase font size */
+}
 
-    #button.show {
+#button:hover {
+    background-color: #555;
+}
+
+#button.show {
+    opacity: 1;
+    display: block;
+}
+
+.toast-it {
+    background-color: #555555;
+    color: #F4F4F4;
+    padding: 3px 20px;
+    border-radius: 20px;
+    text-align: center;
+    position: fixed;
+    /* center horizontally */
+    top: 95%;
+    left: 50%;
+    transform: translate(-50%, -80%);
+
+    animation-name: pulse;
+    animation-timing-function: ease-in;
+    animation-duration: 2s;
+}
+
+@keyframes TOAST-APPEAR {
+    0% {
+        opacity: 0;
+    }
+    15% {
         opacity: 1;
-        display: block;
     }
-
-    .toast-it {
-        background-color: #555555;
-        color: #F4F4F4;
-        padding: 3px 20px;
-        border-radius: 20px;
-        text-align: center;
-        position: fixed;
-        /* center horizontally */
-        top: 95%;
-        left: 50%;
-        transform: translate(-50%, -80%);
-
-        animation-name: pulse;
-        animation-timing-function: ease-in;
-        animation-duration: 2s;
+    80% {
+        opacity: 1;
+        top: 80%;
     }
-
-    @keyframes TOAST-APPEAR {
-        0% {
-            opacity: 0;
-        }
-        15% {
-            opacity: 1;
-        }
-        80% {
-            opacity: 1;
-            top: 80%;
-        }
-        100% {
-            opacity: 0;
-            top: 40%;
-        }
+    100% {
+        opacity: 0;
+        top: 40%;
     }
+}
 
 
 footer {
@@ -274,7 +286,6 @@ footer li {
 @media screen and (min-width: 620px) {
 
 
-
     /*footer {*/
     /*    background-size: 20%;*/
     /*}*/
@@ -287,7 +298,8 @@ footer li {
     body {
         font-size: 18px;
     }
-        .grid-new{
+
+    .grid-new {
         grid-template-columns: repeat(7, 1fr);
     }
 
@@ -296,7 +308,6 @@ footer li {
     /*    margin: 0 auto;*/
     /*    width: 100%;*/
     /*}*/
-
     .leading {
         margin: 20px 0;
     }
@@ -341,7 +352,8 @@ footer li {
     .leading {
         margin: 20px 0;
     }
-    .grid-new{
+
+    .grid-new {
         grid-template-columns: repeat(8, 1fr);
     }
 
@@ -350,7 +362,6 @@ footer li {
     /*    padding: 80px 0;*/
     /*    background-size: 30%;*/
     /*}*/
-
     footer .copyright {
         grid-column: 1/4;
     }
@@ -358,7 +369,6 @@ footer li {
     /*footer .social {*/
     /*    grid-column: 6/9;*/
     /*}*/
-
     /*footer img {*/
     /*    width: 30px;*/
     /*}*/
@@ -367,6 +377,6 @@ footer li {
 
 .input:focus {
     outline: none !important;
-    border:1px solid red;
+    border: 1px solid red;
     box-shadow: 0 0 10px #719ECE;
 }

@@ -1,0 +1,164 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href={% static "fevicon.png" %}>
+    <meta http-equiv="x-dns-prefetch-control" content="on"/>
+    {% block head %}{% endblock head %}
+    <link href={% static '/css/style.css' %} rel='stylesheet'>
+</head>
+<body>
+
+<div class="navigation-bar">
+    <nav class="site-nav grid">
+        <p><a href="{% url 'texttools:HOME' %}"> TextGeneraorFonts</a></p>
+        <ul>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</div>
+
+<div class="grid">
+    <h1>{% block header %}{% endblock header %}</h1>
+</div>
+
+<div class="grid">
+    <div id="symbols" class="grid-new">
+        <style>
+            span {
+                font-family: HelveticaNeue-Light, -apple-system, AppleSDGothicNeo-Regular, 'lucida grande', tahoma, verdana, arial, sans-serif, 'Segoe UI Emoji', 'Segoe UI Symbol', Noto Color Emoji, NotoColorEmoji, EmojiSymbols, Symbola, Noto, 'Android Emoji', AndroidEmoji, 'Arial Unicode MS', 'Zapf Dingbats', AppleColorEmoji, 'Apple Color Emoji';
+                font-size: 21px;
+                border: 2px solid #1f1f1f;
+                border-radius: 25%;
+                padding: 0.5em;
+            }
+
+            span:hover {
+                box-shadow: 0 5px 10px rgba(0, 0, 0, .8);
+                transform: translateY(-5px) scale(1.02);
+                background: var(--primary);
+            }
+        </style>
+{#        span list#}
+        {% block symbols %}
+        {% endblock symbols %}
+    </div>
+</div>
+
+<div class="grid">
+    <div id="symbols">
+        {% block content %}
+
+        {% endblock content %}
+    </div>
+</div>
+<footer>
+    <div class="grid">
+        <p class="copyright">Copyright 2020 TextGeneratorFonts</p>
+        {#      <ul class="social">#}
+        {#        <li><a href="#"><img src="assets/icon_fb.svg" alt="facebook"></a></li>#}
+        {#        <li><a href="#"><img src="assets/icon_tw.svg" alt="twitter"></a></li>#}
+        {#      </ul>#}
+    </div>
+</footer>
+<a id="button">Top</a>
+
+
+<script>
+    var spans = document.getElementsByTagName('span');
+    for (let i = 0; i < spans.length; i++)
+        spans[i].onclick = doSomething;
+
+    function doSomething(input_box) {
+        let SelectedElement = input_box.path || (input_box.composedPath && input_box.composedPath());
+        toastIt('Copied', 2000, {fontSize: '18px'});
+        let a = SelectedElement[0].textContent;
+        let dummy = document.createElement("textarea");
+        document.body.appendChild(dummy);
+        dummy.value = a;
+        dummy.select();
+        document.execCommand("copy");
+        document.body.removeChild(dummy);
+    }</script>
+
+
+<!-- Toast -->
+<script>
+    (function (global, factory) {
+        typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
+            typeof define === 'function' && define.amd ? define(factory) :
+                global.toastIt = factory();
+    }(this, function () {
+        'use strict';
+
+        var toastIt = function (text, timeout, options) {
+            var timeout = timeout || 3000;
+            var toast = document.createElement('DIV');
+            toast.classList.add('toast-it');
+            var content = document
+                .createTextNode(text);
+            toast.appendChild(content);
+            toast.style.animationDuration = timeout / 1000 + 's';
+
+            for (var prop in options) {
+                {#console.log(toast.style[prop], options[prop]);#}
+                toast.style[prop] = options[prop];
+            }
+
+            document.body.appendChild(toast);
+            setTimeout(function () {
+                document.body.removeChild(toast);
+            }, timeout);
+        }
+
+        return toastIt;
+    }));
+
+    {#document.getElementById('trigger').onclick = function () {#}
+    {#    var text = document.getElementById('msg').value;#}
+    {#    toastIt(text, 2500, {fontSize: '18px'});#}
+    {#  }#}
+</script>
+<!-- toast End -->
+{% block scripts %}
+{% endblock scripts %}
+<!-- lazy load -->
+<script>
+    if ('loading' in HTMLImageElement.prototype) {
+        const images = document.querySelectorAll('img[loading="lazy"]');
+        images.forEach(img => {
+            img.src = img.dataset.src;
+        });
+    } else {
+        // Dynamically import the LazySizes library
+        const script = document.createElement('script');
+        script.src =
+            'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js';
+        document.body.appendChild(script);
+    }
+</script>
+<!-- end lazyload -->
+
+
+<!--    Scroll top button -->
+<script>
+    function scrollFunction() {
+        document.body.scrollTop > 20 || document.documentElement.scrollTop > 20 ? mybutton.classList.add("show") : mybutton.classList.remove("show")
+    }
+
+    function topFunction() {
+        document.body.scrollTop = 0, document.documentElement.scrollTop = 0
+    }
+
+    mybutton = document.getElementById("button");
+    window.onscroll = function () {
+        scrollFunction()
+    }, mybutton.addEventListener("click", topFunction, {passive: true});
+</script>
+</body>
+</html>
