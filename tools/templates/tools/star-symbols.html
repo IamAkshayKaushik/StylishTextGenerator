@@ -10,7 +10,7 @@
 
 <div class="navigation-bar">
     <nav class="site-nav grid">
-        <h1>TextGeneraorFonts</h1>
+        <p><a href="{% url 'texttools:HOME' %}"> TextGeneraorFonts</a></p>
         <ul>
             <li><a href="#portfolio">Portfolio</a></li>
             <li><a href="#skills">Skills</a></li>
@@ -19,28 +19,28 @@
     </nav>
 </div>
 
-<div class="grid" >
-    <h2>Star Symbols</h2>
+<div class="grid">
+    <h1>Star Symbols</h1>
 </div>
 
 <div class="grid">
     <div id="symbols" class="grid">
         <style>
-            span
-            {
+            span {
                 font-size: 21px;
                 border: 2px solid #1f1f1f;
                 border-radius: 25%;
             }
-            span:hover{
-                    box-shadow: 0 5px 10px rgba(0,0,0,.8);
-    transform: translateY(-5px) scale(1.02);
+
+            span:hover {
+                box-shadow: 0 5px 10px rgba(0, 0, 0, .8);
+                transform: translateY(-5px) scale(1.02);
             }
         </style>
-    <span>♀</span>
-    <span>♂</span>
-    <span>hii</span>
-    <span>hii</span>
+        <span>♀</span>
+        <span>♂</span>
+        <span>hii</span>
+        <span>hii</span>
         <span>hii</span>
         <span>hii</span>
         <span>hii</span>
@@ -49,6 +49,24 @@
         <span>hii</span>
     </div>
 </div>
+
+<script>var spans = document.getElementsByTagName('span');
+for (let i = 0; i < spans.length; i++)
+    spans[i].onclick = doSomething;
+
+function doSomething(x) {
+    a = x.path[0].textContent;
+    let dummy = document.createElement("textarea");
+    // to avoid breaking orgain page when copying more words
+    // cant copy when adding below this code
+    // dummy.style.display = 'none'
+    document.body.appendChild(dummy);
+    //Be careful if you use texarea. setAttribute('value', value), which works with "input" does not work with "textarea". – Eduard
+    dummy.value = a;
+    dummy.select();
+    document.execCommand("copy");
+    document.body.removeChild(dummy);
+}</script>
 
 </body>
 </html>
