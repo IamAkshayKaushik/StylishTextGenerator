@@ -1,0 +1,14 @@
+{% extends 'symbol-base.html' %}
+{% load static %}
+{% block head %}
+    <title>Emoji Keyboard Copy and Paste</title>
+{% endblock head %}
+
+{% block header %}
+    Emoji Keyboard
+{% endblock header %}
+{% block symbols %}
+    {% for post in object_list %}
+        <span title="{{ post.name }}" shortname="{{ post.shortname }}">{{post.emoji}}</span>
+    {% endfor %}
+{% endblock symbols %}

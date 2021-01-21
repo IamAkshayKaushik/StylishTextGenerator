@@ -105,8 +105,8 @@ h4 {
 
 .grid-new {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 10px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
     box-sizing: border-box;
 }
 
@@ -289,6 +289,9 @@ footer li {
     /*footer {*/
     /*    background-size: 20%;*/
     /*}*/
+    .grid-new {
+    grid-template-columns: repeat(6, 1fr);
+}
 
 }
 

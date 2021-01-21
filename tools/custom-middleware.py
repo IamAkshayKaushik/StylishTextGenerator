@@ -13,14 +13,16 @@ class StatsMiddleware(MiddlewareMixin):
     def process_request(self, request):
         "Store the start time when the request comes in."
         request.start_time = time.time()
-        print(request.path_info.lstrip('/'))
+        # print(request.path_info.lstrip('/'))
 
     def process_response(self, request, response):
         "Calculate and output the page generation duration"
         # Get the start time from the request and calculate how long
         # the response took.
         duration = time.time() - request.start_time
-        print(duration * 1000)
+        x = duration * 1000
+        print(x)
         # Add the header.
-        response["X-Page-Generation-Duration-ms"] = int(duration * 1000)
+        response["X-Page-Generation-Duration-ms"] = int(x)
+        response['Content-Type'] = "text/html; charset=utf8mb4"
         return response
