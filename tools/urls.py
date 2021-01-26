@@ -7,13 +7,14 @@ from tools.views import EmojiList, EmojiSearch
 
 app_name = 'texttools'
 urlpatterns = [
+    path('', TemplateView.as_view(template_name="tools/vaporwave-text.html"), name="HOME"),
     path('small-text-generator', TemplateView.as_view(template_name="tools/small-text-generator.html"),
          name="small-text-generator"),
-    path('', TemplateView.as_view(template_name="tools/vaporwave-text.html"), name="HOME"),
     path('star-symbols', TemplateView.as_view(template_name="tools/star-symbols.html"), name="star-symbbols"),
     path('copyright-symbols', TemplateView.as_view(template_name="tools/copyright-symbols.html"),
          name="copyright-symbols"),
     path('emoji-list/', EmojiList.as_view(), name="emoji-list"),
-    path('emoji-search/<str:search>', EmojiSearch.as_view())
+    path('emoji-search/<str:search>', EmojiSearch.as_view()),
+    path('bold-text-generator', TemplateView.as_view(template_name="tools/bold-text-generator.html")),
     # path('bootstrap', TemplateView.as_view(template_name="tools/home.html"), name="vaporwave-text"),
 ]
