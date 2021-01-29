@@ -24,6 +24,6 @@ class StatsMiddleware(MiddlewareMixin):
         print(x)
         # Add the header.
         response["X-Page-Generation-Duration-ms"] = int(x)
-        response['Content-Type'] = "text/html; charset=utf8"
+        response['Content-Type'] = "text/html; charset=utf-8"
         response['Link'] = "</static/css/style.css>; as=style; rel=preload"
         return response

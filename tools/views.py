@@ -11,6 +11,7 @@ from django.views.decorators.cache import cache_page
 class EmojiList(generic.ListView):
     model = store
     template_name = 'tools/emoji-keyboard.html'
+    paginate_by = 80
 
     def get_queryset(self):
         queryset = self.model.objects.all()
