@@ -15,6 +15,7 @@ urlpatterns = [
          name="copyright-symbols"),
     path('emoji-list/', EmojiList.as_view(), name="emoji-list"),
     path('emoji-search/<str:search>', EmojiSearch.as_view()),
-    path('bold-text-generator', TemplateView.as_view(template_name="tools/bold-text-generator.html")),
+    path('bold-text-generator', TemplateView.as_view(template_name="tools/bold-text-generator.html"),
+         name="bold-text-generator"),
     # path('bootstrap', TemplateView.as_view(template_name="tools/home.html"), name="vaporwave-text"),
 ]

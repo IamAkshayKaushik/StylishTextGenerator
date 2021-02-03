@@ -19,7 +19,7 @@
 
 // copyToClipboard
 function copyToClipboard(input_box) {
-    path = input_box.path || (input_box.composedPath && input_box.composedPath());
+    let path = input_box.path || (input_box.composedPath && input_box.composedPath());
     let textBox = path[0];
     textBox.select();
     document.execCommand("copy");
@@ -46,7 +46,7 @@ function createBoxes(containerId, input_text) {
 
     let containerHead = document.getElementById(containerId);
     // col_count = shuffle(forward(input_text).split('\n\n'));
-    col_count = forward(input_text).split('\n\n');
+    let col_count = forward(input_text).split('\n\n');
     let index = 1;
     for (let col of col_count) {
         let cellText = document.createElement("input");
