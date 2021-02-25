@@ -23,16 +23,7 @@
     <!-- low priority css load before lcp end  -->
 </head>
 <body>
-<div class="navigation-bar">
-    <nav class="site-nav grid">
-        <p><a href="{% url 'texttools:HOME' %}"> TextGeneraorFonts</a></p>
-        <ul>
-            <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-</div>
+{% include 'navigation.html' %}
 <div id="akshay-generate-text" class="grid">
     <h1>{% block header %}{% endblock header %}</h1>
     <textarea placeholder="Enter text" id="input_text"></textarea>

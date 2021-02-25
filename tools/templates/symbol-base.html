@@ -12,16 +12,7 @@
 </head>
 <body>
 
-<div class="navigation-bar">
-    <nav class="site-nav grid">
-        <p><a href="{% url 'texttools:HOME' %}"> TextGeneraorFonts</a></p>
-        <ul>
-            <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-</div>
+{% include 'navigation.html' %}
 
 <div class="grid">
     <h1>{% block header %}{% endblock header %}</h1>
