@@ -5,6 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="canonical" href={{ request.build_absolute_uri }}/>
+    <link rel='dns-prefetch' href='//cdnjs.cloudflare.com'/>
+    <meta property="og:type" content="website">
+    <meta property="og:url" content={{ request.build_absolute_uri }}>
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ request.build_absolute_uri }}">
     <link rel="icon" href={% static "fevicon.png" %}>
     <meta http-equiv="x-dns-prefetch-control" content="on"/>
     {% block head %}{% endblock head %}
