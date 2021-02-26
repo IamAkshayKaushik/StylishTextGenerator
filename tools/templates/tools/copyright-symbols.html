@@ -2,23 +2,18 @@
 {% load static %}
 {% block head %}
     <title>Copyright(©) and Trademark ™ Symbols (🅲🅾🅿🆈 🅰🅽🅳 🅿🅰🆂🆃🅴)</title>
-    <link rel="canonical" href={{ request.build_absolute_uri }}/>
     <meta name="title" content="Copyright(©) and Trademark ™ Symbols (🅲🅾🅿🆈 🅰🅽🅳 🅿🅰🆂🆃🅴)">
     <meta name="Description"
           content="Copyright symbols are used to protect the rights of the original content creator. These symbols are mentioned on the copyrighted content."/>
     <meta name="keywords"
           content="Copyright and Trademark Symbols, copy Fonts, Copy and paste Trademark Symbols, copyright symbol copy and paste">
 
-    <meta property="og:type" content="website">
-    <meta property="og:url" content={{ request.build_absolute_uri }}>
     <meta property="og:title" content="Copyright(©) and Trademark ™ Symbols (🅲🅾🅿🆈 🅰🅽🅳 🅿🅰🆂🆃🅴)">
     <meta property="og:description"
           content="Copyright symbols are used to protect the rights of the original content creator. These symbols are mentioned on the copyrighted content.">
     <meta property="og:image"
           content="https://textgeneratorfonts.com/static/copy-and-paste-symbols.jpg">
 
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="{{ request.build_absolute_uri }}">
     <meta property="twitter:title" content="Copyright(©) and Trademark ™ Symbols (🅲🅾🅿🆈 🅰🅽🅳 🅿🅰🆂🆃🅴)">
     <meta property="twitter:description"
           content="Copyright symbols are used to protect the rights of the original content creator. These symbols are mentioned on the copyrighted content.">
@@ -133,30 +128,28 @@
 
 {% block scripts %}
     <script type="application/ld+json">
-        {
-          "@context": "https://schema.org",
-          "@type": "Article",
-          "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "https://textgeneratorfonts.com/copyright-symbols"
-          },
-          "headline": "Copyright and Trademark Symbols",
-          "description": "Copyright symbols are used to protect the rights of the original content creator. These symbols are mentioned on the copyrighted content.",
-          "image": "https://textgeneratorfonts.com/static/copy-and-paste-symbols.jpg",
-          "author": {
-            "@type": "Organization",
-            "name": "TextGeneratorFonts"
-          },
-          "publisher": {
-            "@type": "Organization",
-            "name": "TextGeneratorFonts",
-            "logo": {
-              "@type": "ImageObject",
-              "url": "https://textgeneratorfonts.com/static/fevicon.png"
-            }
-          },
-          "datePublished": "2021-02-03",
-          "dateModified": "2021-02-03"
-        }
+    {
+       "@context":"https://schema.org/",
+       "@type":"Article",
+       "author":{
+          "@type":"Organization",
+          "name":"TextGeneratorFonts"
+       },
+       "headline":"Copyright(©) and Trademark ™ Symbols (🅲🅾🅿🆈 🅰🅽🅳 🅿🅰🆂🆃🅴)",
+       "image":"https://textgeneratorfonts.com/static/copy-and-paste-symbols.jpg",
+       "datePublished":"2021-02-10T00:00:00.000Z",
+       "publisher":{
+          "@type":"Organization",
+          "name":"TextGeneratorFonts",
+          "logo":{
+             "@type":"ImageObject",
+             "url":"https://textgeneratorfonts.com/static/fevicon.png"
+          }
+       },
+       "keywords":"Copyright and Trademark Symbols, copy Fonts, Copy and paste Trademark Symbols, copyright symbol copy and paste",
+       "dateModified":"2021-02-26T00:00:00.000Z",
+       "mainEntityOfPage":"{{ request.build_absolute_uri }}#website",
+       "description":"Copyright symbols are used to protect the rights of the original content creator. These symbols are mentioned on the copyrighted content."
+    }
     </script>
 {% endblock scripts %}
