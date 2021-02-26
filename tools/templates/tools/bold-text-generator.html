@@ -3,22 +3,18 @@
 
 {% block head %}
     <title>Bold Text Generator (𝖈𝖔𝖕𝖞 𝖆𝖓𝖉 𝖕𝖆𝖘𝖙𝖊)</title>
-    <link rel="canonical" href={{ request.build_absolute_uri }}>
     <meta name="title" content="Bold Text Generator (𝖈𝖔𝖕𝖞 𝖆𝖓𝖉 𝖕𝖆𝖘𝖙𝖊)">
     <meta name="Description"
           content="Bold Text Generator is the easiest tool for turning any regular text into Bold. The best part about using the Bold Text Generator tool is that the converted."/>
     <meta name="keywords" content="bold text generator, copy bold text, Copy and paste Bold Text">
 
-    <meta property="og:type" content="website">
-    <meta property="og:url" content={{ request.build_absolute_uri }}>
     <meta property="og:title" content="Bold Text Generator (𝖈𝖔𝖕𝖞 𝖆𝖓𝖉 𝖕𝖆𝖘𝖙𝖊)">
     <meta property="og:description"
           content="Bold Text Generator is the easiest tool for turning any regular text into Bold. The best part about using the Bold Text Generator tool is that the converted.">
     <meta property="og:image"
           content="https://textgeneratorfonts.com/static/Bold-Text-Generator.jpg">
 
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="{{ request.build_absolute_uri }}">
+
     <meta property="twitter:title" content="Bold Text Generator (𝖈𝖔𝖕𝖞 𝖆𝖓𝖉 𝖕𝖆𝖘𝖙𝖊)">
     <meta property="twitter:description"
           content="Bold Text Generator is the easiest tool for turning any regular text into Bold. The best part about using the Bold Text Generator tool is that the converted.">
@@ -68,31 +64,29 @@
 
 {% block scripts %}
     <script type="application/ld+json">
-        {
-          "@context": "https://schema.org",
-          "@type": "Article",
-          "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "https://textgeneratorfonts.com/bold-text-generator"
-          },
-          "headline": "Bold Text Generator",
-          "description": "Bold Text Generator is the easiest tool for turning any regular text into Bold. The best part about using the Bold Text Generator tool is that the converted.",
-          "image": "https://textgeneratorfonts.com/static/Bold-Text-Generator.jpg",
-          "author": {
-            "@type": "Organization",
-            "name": "TextGeneratorFonts"
-          },
-          "publisher": {
-            "@type": "Organization",
-            "name": "TextGeneratorFonts",
-            "logo": {
-              "@type": "ImageObject",
-              "url": "https://textgeneratorfonts.com/static/fevicon.png"
-            }
-          },
-          "datePublished": "2021-01-27",
-          "dateModified": "2021-01-27"
-        }
+    {
+       "@context":"https://schema.org/",
+       "@type":"Article",
+       "author":{
+          "@type":"Organization",
+          "name":"TextGeneratorFonts"
+       },
+       "headline":"Bold Text Generator (𝖈𝖔𝖕𝖞 𝖆𝖓𝖉 𝖕𝖆𝖘𝖙𝖊)",
+       "image":"https://textgeneratorfonts.com/static/Bold-Text-Generator.jpg",
+       "datePublished":"2021-01-07T00:00:00.000Z",
+       "publisher":{
+          "@type":"Organization",
+          "name":"TextGeneratorFonts",
+          "logo":{
+             "@type":"ImageObject",
+             "url":"https://textgeneratorfonts.com/static/fevicon.png"
+          }
+       },
+       "keywords":"bold text generator, copy bold text, Copy and paste Bold Text",
+       "dateModified":"2021-02-26T00:00:00.000Z",
+       "mainEntityOfPage":"{{ request.build_absolute_uri }}#website",
+       "description":"Bold Text Generator is the easiest tool for turning any regular text into Bold. The best part about using the Bold Text Generator tool is that the converted."
+    }
     </script>
     <script defer src="{% static '/bold-text-generator/base.js' %}"></script>
 {% endblock scripts %}
