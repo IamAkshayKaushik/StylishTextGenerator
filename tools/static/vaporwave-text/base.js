@@ -29,6 +29,7 @@ function forward(text) {
         return "";
     }
     var finalText = "";
+    finalText += vaporwaveText(text) + "\n\n";
     finalText += luni.tools.bubbles.encode(text) + "\n\n";
     finalText += applyCharMap(oldEnglishCharMap, text) + "\n\n";
     finalText += kirbyHug(text) + "\n\n";
@@ -69,7 +70,6 @@ function forward(text) {
     finalText += diametricAngleFrame(text) + "\n\n";
     finalText += wavyJoiner(text) + "\n\n";
     finalText += dottyJoiner(text) + "\n\n";
-    finalText += vaporwaveText(text) + "\n\n";
     finalText += littleSparkles(text) + "\n\n";
     finalText += weirdBox(text) + "\n\n";
     finalText += firework(text) + "\n\n";

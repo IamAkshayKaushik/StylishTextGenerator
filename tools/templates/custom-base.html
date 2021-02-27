@@ -30,23 +30,27 @@
 </head>
 <body>
 {% include 'navigation.html' %}
-<div id="akshay-generate-text" class="grid">
-    <h1>{% block header %}{% endblock header %}</h1>
-    <textarea placeholder="Enter text" id="input_text"></textarea>
-    <div class="custom-ad-1"></div>
-</div>
-<div class="text-items grid" id="text-block">
-</div>
-<section align="center">
-    <!-- Elements adds here -->
-</section>
-<div class="grid">
-    <div id="symbols">
-        {% block content %}
-
-        {% endblock content %}
+<main>
+    <div id="akshay-generate-text" class="grid">
+        <h1>{% block header %}{% endblock header %}</h1>
+        <textarea placeholder="Enter text" id="input_text"></textarea>
+        <div class="custom-ad-1"></div>
     </div>
-</div>
+    <div class="text-items grid" id="text-block">
+    </div>
+    <section align="center">
+        <!-- Elements adds here -->
+    </section>
+    <div class="grid">
+        <div id="symbols">
+            <article>
+                {% block content %}
+
+                {% endblock content %}
+            </article>
+        </div>
+    </div>
+</main>
 <footer>
     <div class="grid">
         <p class="copyright">Copyright 2020 TextGeneratorFonts</p>
@@ -57,6 +61,7 @@
     </div>
 </footer>
 <a id="button">Top</a>
+<script src="https://lunicode.com/js/lunicode.min.js" defer></script>
 {% block scripts %}
 {% endblock scripts %}
 
