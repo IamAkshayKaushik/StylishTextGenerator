@@ -25,8 +25,9 @@ from django.shortcuts import reverse
 
 class StaticViewSitemap(Sitemap):
     def items(self):
-        return ['texttools:HOME', 'texttools:small-text-generator', 'texttools:star-symbbols',
-                'texttools:copyright-symbols', 'texttools:emoji-list', 'texttools:bold-text-generator']
+        return ['texttools:HOME', 'texttools:small-text-generator', 'texttools:star-symbols',
+                'texttools:copyright-symbols', 'texttools:emoji-list', 'texttools:bold-text-generator',
+                'texttools:vaporwave-text']
 
     def location(self, item):
         return reverse(item)

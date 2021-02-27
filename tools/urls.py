@@ -11,7 +11,7 @@ urlpatterns = [
     path('vaporwave-text', TemplateView.as_view(template_name="tools/vaporwave-text.html"), name="vaporwave-text"),
     path('small-text-generator', TemplateView.as_view(template_name="tools/small-text-generator.html"),
          name="small-text-generator"),
-    path('star-symbols', TemplateView.as_view(template_name="tools/star-symbols.html"), name="star-symbbols"),
+    path('star-symbols', TemplateView.as_view(template_name="tools/star-symbols.html"), name="star-symbols"),
     path('copyright-symbols', TemplateView.as_view(template_name="tools/copyright-symbols.html"),
          name="copyright-symbols"),
     path('emoji-list/', EmojiList.as_view(), name="emoji-list"),
