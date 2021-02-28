@@ -190,6 +190,31 @@
     <p style="text-align: center;"><b>Sharing is Caring!</b></p>
 {% endblock content %}
 {% block scripts %}
+        <script type='application/ld+json'>
+    {
+       "@context":"https://schema.org/",
+       "@type":"Article",
+       "author":{
+          "@type":"Organization",
+          "name":"TextGeneratorFonts"
+       },
+       "headline":"(っ◔◡◔) TextGeneratorFonts ♥ ➽ 𝒸𝑜𝓅𝓎 𝒶𝓃𝒹 𝓅𝒶𝓈𝓉𝑒 Fonts",
+       "image":"https://textgeneratorfonts.com/static/copy-and-paste-symbols.jpg",
+       "datePublished":"2021-02-03T00:00:00.000Z",
+       "publisher":{
+          "@type":"Organization",
+          "name":"TextGeneratorFonts",
+          "logo":{
+             "@type":"ImageObject",
+             "url":"https://textgeneratorfonts.com/static/fevicon.png"
+          }
+       },
+       "keywords":"Fancy Text, Fancy Fonts, Fancy Text Generator, Stylish Text, Cool Text",
+       "dateModified":"2021-02-28T00:00:00.000Z",
+       "mainEntityOfPage":"{{ request.build_absolute_uri }}#website",
+       "description":"This cool fancy text generator will transform your text into a beautiful piece of writing. Get ready to amaze your friends with the latest fonts."
+    }
+    </script>
     <script src={% static "js/base.js" %} defer></script>
     <script src={% static "js/fancytextking.js" %} defer></script>
 {% endblock scripts %}
