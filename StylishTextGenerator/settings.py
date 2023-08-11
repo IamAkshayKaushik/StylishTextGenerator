@@ -19,7 +19,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'mhtu32l5@ht@egq4$ks^u=$08k0z37vn72zq2=oo_=)57ysc&u'
+SECRET_KEY = ''
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -94,8 +94,8 @@ DATABASES = {
         'COLLATION': 'utf8mb4_unicode_ci',
         'CHARSET': 'utf8mb4',
         'NAME': 'django',
-        'USER': 'django',
-        'PASSWORD': 'django',
+        'USER': '',
+        'PASSWORD': '',
         'OPTIONS': {
             'init_command': "SET default_storage_engine=INNODB,sql_mode='STRICT_TRANS_TABLES'",
             'charset': 'utf8mb4',
